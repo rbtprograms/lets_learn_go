@@ -13,7 +13,7 @@ func main() {
 		fmt.Println(i)
 	}
 	x := 42
-	fmt.Println(x);
+	fmt.Println(x)
 	x = 99
 	fmt.Println(x)
 	var y = 101
