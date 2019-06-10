@@ -7,6 +7,7 @@ func main() {
 	exercise2()
 	exercise3()
 	exercise4()
+	exercise5()
 }
 
 func exercise1() {
@@ -32,10 +33,20 @@ func exercise3() {
 	s := fmt.Sprintf("%v\t%v\t%v\t", x, y, z)
 	fmt.Println(s)
 }
+type newNum int
+var x newNum
 
 func exercise4() {
-	type newNum int
-	var x newNum
+	fmt.Printf("%T\t", x)
 	x = 42
 	fmt.Println(x)
+}
+
+var y int
+
+func exercise5() {
+	y = 100
+	y = int(x)
+	fmt.Printf("%T\t", y)
+	fmt.Printf("%v\t", y)
 }
