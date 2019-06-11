@@ -9,4 +9,6 @@ func main() {
 			fmt.Printf("Outer loop: %v\t and the Inner: %v\n", i, j)
 		}
 	}
+
+
 }
