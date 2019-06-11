@@ -9,12 +9,13 @@ func main() {
 	if x := 42; x == 3 {
 		fmt.Println("true")
 	}
-	if x == false {
-		fmt.Println("false")
-	}
-	if 2 == 2 {
-		fmt.Println("true")
+
+	y := 42
+	if y == 40 {
+		fmt.Println("40")
+	} else if y == 41 {
+		fmt.Println("41")
 	} else {
-		fmt.Println("false")
+		fmt.Println("neither 40 nor 41")
 	}
 }
