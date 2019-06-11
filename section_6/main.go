@@ -8,6 +8,7 @@ func main() {
 	exercise3()
 	exercise4()
 	exercise5()
+	exercise6()
 }
 
 func exercise1() {
@@ -46,4 +47,15 @@ func exercise5() {
 	y = `Totoro is
 	the best ever`
 	fmt.Print(y)
+}
+
+const (
+	a = 2016 + iota
+	b = 2016 + iota
+	c = 2016 + iota
+	d = 2016 + iota
+)
+
+func exercise6() {
+	fmt.Printf("%v\t%v\t%v\t%v\t", a, b, c, d)
 }
