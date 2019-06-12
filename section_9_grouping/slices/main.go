@@ -4,7 +4,8 @@ import (
 	"fmt"
 )
 
-//arrays ar enot used much in go, use slices instead
+//arrays are not used much in go, use slices instead
+//slices have dynamic sizes
 func main() {
 	//making a slice
 	//x := type{values} //composite literal
@@ -34,6 +35,21 @@ func main() {
 	//delete from a slice
 	x = append(x[0:2], x[4:]...)
 	fmt.Println(x)
+
+	//using make
+	//last item is max amount of elements
+	x = make([]int, 10, 12)
+	x[0] = 1
+	x[9] = 99
+	//can keep appending until cap is hit
+	//go will auto extend cap if you go over
+	x = append(x, 333)
+	x = append(x, 333)
+	x = append(x, 333)
+	fmt.Println(x)
+	fmt.Println(len(x))
+	//cap shows how many elements it can hold
+	fmt.Println(cap(x))
 }
 
 //a slice allows you to group together values
