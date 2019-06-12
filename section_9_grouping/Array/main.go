@@ -4,6 +4,9 @@ import (
 	"fmt"
 )
 
+//arrays ar enot used much in go, use slices instead
 func main() {
-	fmt.Println("")
+	var x [5]int
+	x[3] = 42
+	fmt.Println(x)
 }
