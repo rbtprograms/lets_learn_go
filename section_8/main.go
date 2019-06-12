@@ -5,7 +5,7 @@ import "fmt"
 func main() {
 	// exercise1()
 	exercise2()
-	// exercise3()
+	exercise3()
 	// exercise4()
 	// exercise5()
 	// exercise6()
@@ -26,9 +26,11 @@ func exercise2() {
 }
 
 func exercise3() {
-	const a string = "hi"
-	const b = 100
-	fmt.Println(a, b)
+	bd := 1990
+	for bd < 2020 {
+		fmt.Println(bd)
+		bd++
+	}
 }
 
 func exercise4() {
