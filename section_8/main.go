@@ -6,8 +6,8 @@ func main() {
 	// exercise1()
 	exercise2()
 	exercise3()
-	// exercise4()
-	// exercise5()
+	exercise4()
+	exercise5()
 	// exercise6()
 }
 
@@ -34,19 +34,20 @@ func exercise3() {
 }
 
 func exercise4() {
-	x := 100
-	fmt.Printf("%d\t%b\t%#x\n", x, x, x)
-	y := x << 1
-	fmt.Printf("%d\t%b\t%#x\n", y, y, y)
-
+	bd := 1990
+	for {
+		if bd == 2020 {
+			break
+		}
+		fmt.Println(bd);
+		bd ++
+	}
 }
 
-var y string
-
 func exercise5() {
-	y = `Totoro is
-	the best ever`
-	fmt.Print(y)
+	for i := 10; i <= 100; i++ {
+		fmt.Printf("%v\n", i % 4)
+	}
 }
 
 const (
