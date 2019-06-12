@@ -9,6 +9,9 @@ func main() {
 	exercise4()
 	exercise5()
 	exercise6()
+	exercise7()
+	exercise8()
+	exercise9()
 }
 
 func exercise1() {
@@ -39,21 +42,45 @@ func exercise4() {
 		if bd == 2020 {
 			break
 		}
-		fmt.Println(bd);
-		bd ++
+		fmt.Println(bd)
+		bd++
 	}
 }
 
 func exercise5() {
 	for i := 10; i <= 100; i++ {
-		fmt.Printf("%v\n", i % 4)
+		fmt.Printf("%v\n", i%4)
 	}
 }
 
+var temp = 5
 
 func exercise6() {
-	temp := 5
 	if temp < 6 {
 		fmt.Print("worked")
+	}
+}
+func exercise7() {
+	if temp > 6 {
+		fmt.Print("worked")
+	} else {
+		fmt.Print("didnt")
+	}
+}
+func exercise8() {
+	switch {
+	case false:
+		fmt.Println("should not print")
+	case true:
+		fmt.Println("Will print")
+	}
+}
+func exercise9() {
+	favSport := "surfing"
+	switch favSport {
+	case "skiing":
+		fmt.Println("skiing")
+	case "surfing":
+		fmt.Println("Hell yea brother")
 	}
 }
