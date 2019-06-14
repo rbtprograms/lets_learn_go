@@ -7,8 +7,8 @@ func main() {
 	exercise2()
 	exercise3()
 	exercise4()
-	// exercise5()
-	// exercise6()
+	exercise5()
+	exercise6()
 	// exercise7()
 	// exercise8()
 	// exercise9()
@@ -50,17 +50,17 @@ func exercise4() {
 }
 
 func exercise5() {
-	for i := 10; i <= 100; i++ {
-		fmt.Printf("%v\n", i%4)
-	}
+	s := []int{42,43,44,45,46,47,48,49,50,51}
+	s = append(s[:3], s[6:]...)
+	fmt.Println(s)
 }
 
-var temp = 5
-
 func exercise6() {
-	if temp < 6 {
-		fmt.Print("worked")
-	}
+	s := make([]string, 50, 50)
+	s = []string{}
+	fmt.Println(s)
+	fmt.Println(len(s))
+	fmt.Println(cap(s))
 }
 func exercise7() {
 	if temp > 6 {
