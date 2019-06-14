@@ -9,9 +9,10 @@ func main() {
 	exercise4()
 	exercise5()
 	exercise6()
-	// exercise7()
-	// exercise8()
-	// exercise9()
+	exercise7()
+	exercise8()
+	exercise9()
+	exercise10()
 }
 
 func exercise1() {
@@ -63,26 +64,54 @@ func exercise6() {
 	fmt.Println(cap(s))
 }
 func exercise7() {
-	if temp > 6 {
-		fmt.Print("worked")
-	} else {
-		fmt.Print("didnt")
+	s := [][]string{ []string{ "Bobby", "Sophia", "yith" }, []string{ "Cait", "Mom", "Dad"}}
+	fmt.Println(s)
+
+	for i, v := range s {
+		fmt.Println("item: ", i)
+		for j, v := range v {
+			fmt.Printf("\tindex: %v\tvalue: %v", j, v)
+		}
 	}
 }
 func exercise8() {
-	switch {
-	case false:
-		fmt.Println("should not print")
-	case true:
-		fmt.Println("Will print")
+	m := map[string][]string{
+		"Bobby": []string{"Sophia", "BBQ", "hikes"},
+		"Sophia": []string{"Resting alut", "being a been", "being the best"},
+		"Injoong": []string{"Hades", "Ruth", "Reggie"},
+	}
+	for k, v := range m {
+		fmt.Printf("\n\tthe record for key: %v\n", k)
+		for i, v := range v {
+			fmt.Println("\t", i, v)
+		}
 	}
 }
 func exercise9() {
-	favSport := "surfing"
-	switch favSport {
-	case "skiing":
-		fmt.Println("skiing")
-	case "surfing":
-		fmt.Println("Hell yea brother")
+	m := map[string][]string{
+		"Bobby": []string{"Sophia", "BBQ", "hikes"},
+		"Sophia": []string{"Resting alut", "being a been", "being the best"},
+		"Injoong": []string{"Hades", "Ruth", "Reggie"},
+	}
+	m["Arthur"] = []string{"Board Games", "Friends", "climbing"}
+	for k, v := range m {
+		fmt.Printf("\n\tthe record for key: %v\n", k)
+		for i, v := range v {
+			fmt.Println("\t", i, v)
+		}
+	}
+}
+func exercise10() {
+	m := map[string][]string{
+		"Bobby": []string{"Sophia", "BBQ", "hikes"},
+		"Sophia": []string{"Resting alut", "being a been", "being the best"},
+		"Injoong": []string{"Hades", "Ruth", "Reggie"},
+	}
+	delete(m, "Bobby")
+	for k, v := range m {
+		fmt.Printf("\n\tthe record for key: %v\n", k)
+		for i, v := range v {
+			fmt.Println("\t", i, v)
+		}
 	}
 }
