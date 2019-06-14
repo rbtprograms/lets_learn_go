@@ -23,6 +23,7 @@ func main() {
 		fmt.Println("SECOND IF PRINT: ", v)
 	}
 
+	//add to the map
 	m["Injoong"] = 25
 	if v, ok := m["Injoong"]; ok {
 		fmt.Println("THIRD IF PRINT: ", v)
@@ -30,6 +31,20 @@ func main() {
 
 	for k, v := range m {
 		fmt.Println(k, v)
+	}
+
+	xi := []int{4,5,6,7,8,9}
+	for i, v := range xi {
+		fmt.Println(i, v)
+	}
+
+	//delete from the map
+	delete(m, "Bobby")
+	fmt.Println(m)
+
+	if v, ok := m["Sophia"]; ok {
+		fmt.Println("value: ", v)
+		delete(m, "Sophia")
 	}
 
 }
