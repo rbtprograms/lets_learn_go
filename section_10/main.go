@@ -4,9 +4,9 @@ import "fmt"
 
 func main() {
 	exercise1()
-	// exercise2()
-	// exercise3()
-	// exercise4()
+	exercise2()
+	exercise3()
+	exercise4()
 	// exercise5()
 	// exercise6()
 	// exercise7()
@@ -23,30 +23,30 @@ func exercise1() {
 }
 
 func exercise2() {
-	for i := 65; i <= 90; i++ {
-		for j := 0; j <= 2; j++ {
-			fmt.Printf("%v\t%#U\n", i, i)
-		}
+	s := []int{1,2,3,4,5,6,7,8,9,10}
+	for i, v := range s {
+		fmt.Println(i, v)
 	}
+	fmt.Printf("%T ", s)
 }
 
 func exercise3() {
-	bd := 1990
-	for bd < 2020 {
-		fmt.Println(bd)
-		bd++
-	}
+	s := []int{42,43,44,45,46,47,48,49,50,51}
+	fmt.Println(s[2:5])
+	fmt.Println(s[3:6])
+	fmt.Println(s[4:7])
+	fmt.Println(s[5:8])
+	fmt.Println(s[6:9])
 }
 
 func exercise4() {
-	bd := 1990
-	for {
-		if bd == 2020 {
-			break
-		}
-		fmt.Println(bd)
-		bd++
-	}
+	s := []int{42,43,44,45,46,47,48,49,50,51}
+	s = append(s, 52)
+	fmt.Println(s)
+	s = append(s, 53,54,55)
+	fmt.Println(s)
+	s = append(s, []int{56,57,58,59}...)
+	fmt.Println(s)
 }
 
 func exercise5() {
