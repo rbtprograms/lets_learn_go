@@ -50,6 +50,14 @@ func main() {
 	fmt.Println(len(x))
 	//cap shows how many elements it can hold
 	fmt.Println(cap(x))
+
+	bt := []string{"Bobby", "T", "Chocolate", "Honey"}
+	fmt.Println(bt)
+	sf := []string{"Subby", "Fujiki", "Vanilla", "Strawberry"}
+	fmt.Println(sf)
+
+	xp := [][]string{bt, sf}
+	fmt.Println(xp)
 }
 
 //a slice allows you to group together values
