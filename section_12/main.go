@@ -6,7 +6,7 @@ func main() {
 	exercise1()
 	exercise2()
 	exercise3()
-	// exercise4()
+	exercise4()
 }
 
 type person struct{
@@ -61,17 +61,59 @@ func exercise2() {
 }
 
 func exercise3() {
-	x := 42
-	y := "JamesBond"
-	z := true
-	s := fmt.Sprintf("%v\t%v\t%v\t", x, y, z)
-	fmt.Println(s)
+	type vehicle struct{
+		doors int
+		color string
+	}
+	type truck struct{
+		vehicle
+		fourWheel bool
+	}
+	type sedan struct{
+		vehicle
+		luxury bool
+	}
+	t := truck{
+		vehicle: vehicle{
+			doors: 4,
+			color: "white",
+		},
+		fourWheel: true,
+	}
+	s := sedan{
+		vehicle: vehicle{
+			doors: 2,
+			color: "silver",
+		},
+		luxury: false,
+	}
+	fmt.Println(t.doors)
+	fmt.Println(s.vehicle.doors)
 }
-type newNum int
-var x newNum
 
 func exercise4() {
-	fmt.Printf("%T\t", x)
-	x = 42
-	fmt.Println(x)
+	b := struct{
+		first string
+		last string
+		favRappers map[string]string
+		favFoods []string
+	}{
+		first: "Bobby",
+		last: "Thompson",
+		favRappers: map[string]string{
+			"Kanye": "Chicago",
+			"Jay-Z": "Brooklyn",
+		},
+		favFoods: []string{"cheese", "sausage"},
+	}
+	fmt.Println(b.first)
+	fmt.Println(b.favFoods)
+
+	for k, v := range b.favRappers {
+		fmt.Println(k, v)
+	}
+
+	for i, v := range b.favFoods {
+		fmt.Println(i, v)
+	}
 }
