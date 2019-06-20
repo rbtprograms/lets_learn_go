@@ -4,18 +4,18 @@ import "fmt"
 
 func main() {
 	exercise1()
-	// exercise2()
+	exercise2()
 	// exercise3()
 	// exercise4()
 }
 
-func foo() int {
-	return 5
-}
-func bar() (int, string) {
-	return 55, "hello"
-}
 func exercise1() {
+	foo := func() int {
+		return 5
+	}
+	bar := func() (int, string) {
+		return 55, "hello"
+	}
 	r1 := foo()
 	r2a, r2b := bar()
 	fmt.Println("r1", r1)
@@ -23,7 +23,23 @@ func exercise1() {
 	fmt.Println("r2b", r2b)
 }
 func exercise2() {
-		fmt.Println("------")
+	foo := func(x ...int) int {
+		var sum int
+		for _, v := range x {
+			sum += v
+		}
+		return sum
+	}
+	bar := func(x []int) int {
+		var sum int
+		for i := range x {
+			sum += x[i]
+		}
+		return sum
+	}
+	vals := []int{1,2,3,4,5}
+	fmt.Println("foo:", foo(vals...))
+	fmt.Println("bar:", bar(vals))
 }
 
 func exercise3() {
