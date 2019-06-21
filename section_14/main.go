@@ -1,12 +1,20 @@
 package main
 
-import "fmt"
+import (
+	"fmt" 
+	"math"
+)
 
 func main() {
 	exercise1()
 	exercise2()
-	// exercise3()
-	// exercise4()
+	exercise3()
+	exercise4()
+	exercise5()
+	exercise6()
+	exercise7()
+	exercise8()
+	exercise9()
 }
 
 func exercise1() {
@@ -37,65 +45,115 @@ func exercise2() {
 		}
 		return sum
 	}
-	vals := []int{1,2,3,4,5}
+	vals := []int{1, 2, 3, 4, 5}
 	fmt.Println("foo:", foo(vals...))
 	fmt.Println("bar:", bar(vals))
 }
 
 func exercise3() {
-	type vehicle struct{
-		doors int
-		color string
-	}
-	type truck struct{
-		vehicle
-		fourWheel bool
-	}
-	type sedan struct{
-		vehicle
-		luxury bool
-	}
-	t := truck{
-		vehicle: vehicle{
-			doors: 4,
-			color: "white",
-		},
-		fourWheel: true,
-	}
-	s := sedan{
-		vehicle: vehicle{
-			doors: 2,
-			color: "silver",
-		},
-		luxury: false,
-	}
-	fmt.Println(t.doors)
-	fmt.Println(s.vehicle.doors)
+	defer fmt.Println("FIRST PRINTLN")
+	fmt.Println("SECOND PRINTLN")
+}
+
+type person struct {
+	first string
+	last  string
+	age   int
+}
+
+func (p person) speak() {
+	fmt.Printf("\nHi my name is %v %v. I am %v years old.\n", p.first, p.last, p.age)
 }
 
 func exercise4() {
-	b := struct{
-		first string
-		last string
-		favRappers map[string]string
-		favFoods []string
-	}{
+	p := person{
 		first: "Bobby",
-		last: "Thompson",
-		favRappers: map[string]string{
-			"Kanye": "Chicago",
-			"Jay-Z": "Brooklyn",
-		},
-		favFoods: []string{"cheese", "sausage"},
+		last:  "Thompson",
+		age:   29,
 	}
-	fmt.Println(b.first)
-	fmt.Println(b.favFoods)
+	p.speak()
+}
 
-	for k, v := range b.favRappers {
-		fmt.Println(k, v)
-	}
+type square struct {
+	length float64
+}
 
-	for i, v := range b.favFoods {
-		fmt.Println(i, v)
+type circle struct {
+	radius float64
+}
+
+func (s square) area() float64 {
+	return math.Pow(s.length, 2)
+}
+
+func (c circle) area() float64 {
+	return math.Pi * math.Pow(2, 2)
+}
+
+type shape interface {
+	area() float64
+}
+
+func info(s shape){
+	fmt.Println(s.area())
+}
+
+func exercise5() {
+	s := square{
+		length: 5,
 	}
+	c := circle{
+		radius: 6.5,
+	}
+	info(s)
+	info(c)
+	
+}
+
+var temp = 5
+
+func exercise6() {
+	func() {
+		fmt.Println("an unnamed function is called")
+	}()
+}
+
+var g = func() {
+	fmt.Println("function called from outside the amin block")
+}
+func exercise7() {
+	f := func() {
+		fmt.Println("Variable expression function was called")
+	}
+	f()
+	g()
+}
+func returnsFunc() func() string {
+	return func() string {
+		return "hi"
+	}
+}
+func exercise8() {
+	h := returnsFunc()
+	res := h()
+	fmt.Println(res)
+}
+
+func foo(f func(xi []int) int, ii []int) int {
+	n := f(ii)
+	n++
+	return n
+}
+func exercise9() {
+	g := func(xi []int) int {
+		if len(xi) == 0 {
+			return 0
+		}
+		if len(xi) == 1 {
+			return xi[0]
+		}
+		return xi[0] + xi[len(xi) - 1]
+	}
+	x := foo(g, []int{1,2,3,4,5,6})
+	fmt.Println(x)
 }
