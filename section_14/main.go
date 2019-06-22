@@ -15,6 +15,7 @@ func main() {
 	exercise7()
 	exercise8()
 	exercise9()
+	exercise10()
 }
 
 func exercise1() {
@@ -156,4 +157,26 @@ func exercise9() {
 	}
 	x := foo(g, []int{1,2,3,4,5,6})
 	fmt.Println(x)
+}
+
+func exercise10() {
+	increment := func() func() int {
+		x := 0
+		return func() int {
+			x++
+			return x
+		}
+	}
+	a := increment()
+	b := increment()
+	fmt.Println(a())
+	fmt.Println(a())
+	fmt.Println(a())
+	fmt.Println(a())
+	fmt.Println(b())
+	fmt.Println(b())
+	fmt.Println(b())
+	fmt.Println(b())
+	fmt.Println(b())
+	fmt.Println(b())
 }
