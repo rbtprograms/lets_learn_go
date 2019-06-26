@@ -108,7 +108,6 @@ func exercise5() {
 	}
 	info(s)
 	info(c)
-	
 }
 
 var temp = 5
