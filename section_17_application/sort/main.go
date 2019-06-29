@@ -16,7 +16,7 @@ func main() {
 	fmt.Println(sort.StringsAreSorted(xs))
 	sort.Strings(xs)
 	fmt.Println(sort.StringsAreSorted(xs))
-	
+	 
 	fmt.Println(xi)
 	fmt.Println(xs)
 }
