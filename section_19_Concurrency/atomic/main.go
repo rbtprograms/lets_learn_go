@@ -4,38 +4,32 @@ import (
 	"fmt"
 	"runtime"
 	"sync"
+	"sync/atomic"
 )
 
-
+//be careful with package atomic, it is very low level
+//and takes a lot of care to use correctly
 func main() {
 	fmt.Println("CPUS:", runtime.NumCPU())
 	fmt.Println("FIRST Goroutines:", runtime.NumGoroutine())
 
-	counter := 0
+	var counter int64
 
 	const gs = 100
 	var wg sync.WaitGroup
 	wg.Add(gs)
 
-	//mutex locks down variables so you cannot have multiple
-	//go routines using
-	var mu sync.Mutex
-
 	for i := 0; i < gs; i++ {
 		go func() {
-			//locks down variables
-			mu.Lock()
-			v := counter
+			atomic.AddInt64(&counter, 1)
+			fmt.Println("Counter\t", atomic.LoadInt64(&counter))
 			runtime.Gosched()
-			v++
-			counter = v
-			//opens them up
-			mu.Unlock()
 			wg.Done()
+			// fmt.Println("SECOND Goroutines:", runtime.NumGoroutine())
 		}()
+		// fmt.Println("SECOND Goroutines:", runtime.NumGoroutine())
 	}
 	fmt.Println("SECOND Goroutines:", runtime.NumGoroutine())
 	wg.Wait()
-	//run this and compare the count against the race_condition code
 	fmt.Println("COUNT:", counter)
 }
