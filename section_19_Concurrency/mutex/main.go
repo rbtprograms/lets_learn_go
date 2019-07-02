@@ -6,7 +6,6 @@ import (
 	"sync"
 )
 
-
 func main() {
 	fmt.Println("CPUS:", runtime.NumCPU())
 	fmt.Println("FIRST Goroutines:", runtime.NumGoroutine())

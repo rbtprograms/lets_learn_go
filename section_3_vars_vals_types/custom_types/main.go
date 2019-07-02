@@ -3,7 +3,9 @@ package main
 import "fmt"
 
 var a int
+
 type hotdog int
+
 var b hotdog
 
 func main() {

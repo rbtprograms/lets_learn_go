@@ -147,11 +147,13 @@ func exercise4() {
 }
 
 type byAge []person
+
 func (a byAge) Len() int           { return len(a) }
 func (a byAge) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
 func (a byAge) Less(i, j int) bool { return a[i].Age < a[j].Age }
 
 type byLast []person
+
 func (n byLast) Len() int           { return len(n) }
 func (n byLast) Swap(i, j int)      { n[i], n[j] = n[j], n[i] }
 func (n byLast) Less(i, j int) bool { return n[i].Last < n[j].Last }
@@ -191,7 +193,7 @@ func exercise5() {
 	}
 
 	people := []person{p1, p2, p3}
-	for _, v := range(people) {
+	for _, v := range people {
 		sort.Strings(v.Sayings)
 	}
 	fmt.Println(people)

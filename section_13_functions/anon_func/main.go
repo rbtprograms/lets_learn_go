@@ -7,7 +7,7 @@ import (
 func main() {
 	test()
 
-	func(x int){
+	func(x int) {
 		fmt.Println("anonymous function lets go")
 		fmt.Println("PASSED PARAM:", x)
 	}(42)

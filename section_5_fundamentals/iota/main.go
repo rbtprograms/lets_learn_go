@@ -12,9 +12,9 @@ const (
 )
 
 const (
-	d = iota 	//0
-	e					//1
-	f					//2
+	d = iota //0
+	e        //1
+	f        //2
 )
 
 func main() {

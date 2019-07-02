@@ -33,7 +33,7 @@ func main() {
 		fmt.Println(k, v)
 	}
 
-	xi := []int{4,5,6,7,8,9}
+	xi := []int{4, 5, 6, 7, 8, 9}
 	for i, v := range xi {
 		fmt.Println(i, v)
 	}

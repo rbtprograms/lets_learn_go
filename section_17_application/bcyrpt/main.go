@@ -1,8 +1,8 @@
 package main
 
 import (
-	"golang.org/x/crypto/bcrypt"
 	"fmt"
+	"golang.org/x/crypto/bcrypt"
 )
 
 func main() {
@@ -11,10 +11,10 @@ func main() {
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(bs);
-	err = bcrypt.CompareHashAndPassword(bs, []byte("hi"));
+	fmt.Println(bs)
+	err = bcrypt.CompareHashAndPassword(bs, []byte("hi"))
 	if err != nil {
-		fmt.Println("Unable to log in");
+		fmt.Println("Unable to log in")
 		return
 	}
 	fmt.Println("You logged in")

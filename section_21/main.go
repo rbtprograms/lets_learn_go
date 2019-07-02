@@ -1,16 +1,27 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sync"
+)
 
 func main() {
 	exercise1()
-	exercise2()
 }
 
 func exercise1() {
-	x := 42
-	fmt.Println(x)
-	fmt.Println(&x)
+	var wg sync.WaitGroup
+	wg.Add(2)
+
+	go func(){
+		fmt.Println("FIRST GO ROUTINE")
+		wg.Done()
+	}()
+	go func(){
+		fmt.Println("SECOND GO ROUTINE")
+		wg.Done()
+	}()
+	wg.Wait()
 }
 
 type person struct {

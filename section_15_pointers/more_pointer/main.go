@@ -19,7 +19,7 @@ func foo(y int) {
 
 //with pointers
 func main2() {
-	x := 0	
+	x := 0
 	fmt.Println("first x RAW VAL", x)
 	fmt.Println("first x POINTER", &x)
 	foo2(&x)

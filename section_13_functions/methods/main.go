@@ -34,7 +34,7 @@ func main() {
 		},
 		been: true,
 	}
-	//embedded fields are promoted up but can still be 
+	//embedded fields are promoted up but can still be
 	//accessed via their type
 	fmt.Println(b1)
 	fmt.Println(b2)

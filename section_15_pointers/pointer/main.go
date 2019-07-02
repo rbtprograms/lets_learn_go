@@ -9,7 +9,6 @@ import (
 //not the value itself
 //& gives address, * gives value of item at the address
 
-
 //pointers are good when you are dealing wiht large data
 //sources, instead of passing it around your program
 //you can pass the address for much faster performance
@@ -28,7 +27,7 @@ func main() {
 	fmt.Printf("\n%T\n", y)
 	fmt.Printf("\n%T\n", &y)
 	fmt.Printf("\n%v\n", *&y)
-	
+
 	z := &x
 	fmt.Printf("\n%T\n", *z)
 	fmt.Printf("\n%v\n", *z)

@@ -33,7 +33,9 @@ func exercise3() {
 	s := fmt.Sprintf("%v\t%v\t%v\t", x, y, z)
 	fmt.Println(s)
 }
+
 type newNum int
+
 var x newNum
 
 func exercise4() {

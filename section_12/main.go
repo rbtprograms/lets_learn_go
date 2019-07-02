@@ -9,21 +9,21 @@ func main() {
 	exercise4()
 }
 
-type person struct{
-	first string
-	last string
+type person struct {
+	first       string
+	last        string
 	faveFlavors []string
 }
 
 func exercise1() {
 	p1 := person{
-		first: "Bobby",
-		last: "Bubbero",
+		first:       "Bobby",
+		last:        "Bubbero",
 		faveFlavors: []string{"Vanilla", "Rocky Road"},
 	}
 	p2 := person{
-		first: "Sophia",
-		last: "Subbero",
+		first:       "Sophia",
+		last:        "Subbero",
 		faveFlavors: []string{"Chocolate"},
 	}
 	for i, v := range p1.faveFlavors {
@@ -36,19 +36,19 @@ func exercise1() {
 
 func exercise2() {
 	p1 := person{
-		first: "Bobby",
-		last: "Bubbero",
+		first:       "Bobby",
+		last:        "Bubbero",
 		faveFlavors: []string{"Vanilla", "Rocky Road"},
 	}
 	p2 := person{
-		first: "Sophia",
-		last: "Subbero",
+		first:       "Sophia",
+		last:        "Subbero",
 		faveFlavors: []string{"Chocolate"},
 	}
 
-	m := map[string]person {
-		p1.last:p1,
-		p2.last:p2,
+	m := map[string]person{
+		p1.last: p1,
+		p2.last: p2,
 	}
 	for _, v := range m {
 		fmt.Println(v)
@@ -61,15 +61,15 @@ func exercise2() {
 }
 
 func exercise3() {
-	type vehicle struct{
+	type vehicle struct {
 		doors int
 		color string
 	}
-	type truck struct{
+	type truck struct {
 		vehicle
 		fourWheel bool
 	}
-	type sedan struct{
+	type sedan struct {
 		vehicle
 		luxury bool
 	}
@@ -92,14 +92,14 @@ func exercise3() {
 }
 
 func exercise4() {
-	b := struct{
-		first string
-		last string
+	b := struct {
+		first      string
+		last       string
 		favRappers map[string]string
-		favFoods []string
+		favFoods   []string
 	}{
 		first: "Bobby",
-		last: "Thompson",
+		last:  "Thompson",
 		favRappers: map[string]string{
 			"Kanye": "Chicago",
 			"Jay-Z": "Brooklyn",

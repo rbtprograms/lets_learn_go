@@ -6,11 +6,13 @@ import (
 )
 
 type byAge []person
+
 func (a byAge) Len() int           { return len(a) }
 func (a byAge) Swap(i, j int)      { a[i], a[j] = a[j], a[i] }
 func (a byAge) Less(i, j int) bool { return a[i].age < a[j].age }
 
 type byName []person
+
 func (n byName) Len() int           { return len(n) }
 func (n byName) Swap(i, j int)      { n[i], n[j] = n[j], n[i] }
 func (n byName) Less(i, j int) bool { return n[i].first < n[j].first }

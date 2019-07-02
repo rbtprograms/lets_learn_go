@@ -6,7 +6,6 @@ import (
 	"sync"
 )
 
-
 //run this code with the lines commented in
 //run this with go run -race main.go to see some debugging info
 func main() {

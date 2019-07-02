@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt" 
+	"fmt"
 	"math"
 )
 
@@ -95,7 +95,7 @@ type shape interface {
 	area() float64
 }
 
-func info(s shape){
+func info(s shape) {
 	fmt.Println(s.area())
 }
 
@@ -121,6 +121,7 @@ func exercise6() {
 var g = func() {
 	fmt.Println("function called from outside the amin block")
 }
+
 func exercise7() {
 	f := func() {
 		fmt.Println("Variable expression function was called")
@@ -152,9 +153,9 @@ func exercise9() {
 		if len(xi) == 1 {
 			return xi[0]
 		}
-		return xi[0] + xi[len(xi) - 1]
+		return xi[0] + xi[len(xi)-1]
 	}
-	x := foo(g, []int{1,2,3,4,5,6})
+	x := foo(g, []int{1, 2, 3, 4, 5, 6})
 	fmt.Println(x)
 }
 

@@ -7,7 +7,7 @@ import (
 //functions are first class citizens:
 //can do anything other types can do
 func main() {
-	ii := []int{1,2,3,4,5,6,7,8,9}
+	ii := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
 	s := sum(ii...)
 	eS := evenSum(sum, ii...)
 	oS := oddSum(sum, ii...)
@@ -28,7 +28,7 @@ func sum(xi ...int) int {
 func evenSum(f func(xi ...int) int, vi ...int) int {
 	var yi []int
 	for _, v := range vi {
-		if v % 2 == 0 {
+		if v%2 == 0 {
 			yi = append(yi, v)
 		}
 	}
@@ -38,7 +38,7 @@ func evenSum(f func(xi ...int) int, vi ...int) int {
 func oddSum(f func(xi ...int) int, vi ...int) int {
 	var yi []int
 	for _, v := range vi {
-		if v % 2 != 0 {
+		if v%2 != 0 {
 			yi = append(yi, v)
 		}
 	}

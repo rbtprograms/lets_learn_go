@@ -19,7 +19,7 @@ func main() {
 		if x > 20 {
 			break
 		}
-		if x % 3 == 0 {
+		if x%3 == 0 {
 			continue
 		} else {
 			fmt.Println(x)

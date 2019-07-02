@@ -4,7 +4,6 @@ import (
 	"fmt"
 )
 
-
 func main() {
 	a := increment()
 	b := increment()

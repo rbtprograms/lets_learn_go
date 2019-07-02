@@ -16,7 +16,7 @@ func main() {
 }
 
 func exercise1() {
-	a := [5]int{1,2,3,4,5}
+	a := [5]int{1, 2, 3, 4, 5}
 	for i, v := range a {
 		fmt.Println(i, v)
 	}
@@ -24,7 +24,7 @@ func exercise1() {
 }
 
 func exercise2() {
-	s := []int{1,2,3,4,5,6,7,8,9,10}
+	s := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 	for i, v := range s {
 		fmt.Println(i, v)
 	}
@@ -32,7 +32,7 @@ func exercise2() {
 }
 
 func exercise3() {
-	s := []int{42,43,44,45,46,47,48,49,50,51}
+	s := []int{42, 43, 44, 45, 46, 47, 48, 49, 50, 51}
 	fmt.Println(s[2:5])
 	fmt.Println(s[3:6])
 	fmt.Println(s[4:7])
@@ -41,17 +41,17 @@ func exercise3() {
 }
 
 func exercise4() {
-	s := []int{42,43,44,45,46,47,48,49,50,51}
+	s := []int{42, 43, 44, 45, 46, 47, 48, 49, 50, 51}
 	s = append(s, 52)
 	fmt.Println(s)
-	s = append(s, 53,54,55)
+	s = append(s, 53, 54, 55)
 	fmt.Println(s)
-	s = append(s, []int{56,57,58,59}...)
+	s = append(s, []int{56, 57, 58, 59}...)
 	fmt.Println(s)
 }
 
 func exercise5() {
-	s := []int{42,43,44,45,46,47,48,49,50,51}
+	s := []int{42, 43, 44, 45, 46, 47, 48, 49, 50, 51}
 	s = append(s[:3], s[6:]...)
 	fmt.Println(s)
 }
@@ -64,7 +64,7 @@ func exercise6() {
 	fmt.Println(cap(s))
 }
 func exercise7() {
-	s := [][]string{ []string{ "Bobby", "Sophia", "yith" }, []string{ "Cait", "Mom", "Dad"}}
+	s := [][]string{[]string{"Bobby", "Sophia", "yith"}, []string{"Cait", "Mom", "Dad"}}
 	fmt.Println(s)
 
 	for i, v := range s {
@@ -76,8 +76,8 @@ func exercise7() {
 }
 func exercise8() {
 	m := map[string][]string{
-		"Bobby": []string{"Sophia", "BBQ", "hikes"},
-		"Sophia": []string{"Resting alut", "being a been", "being the best"},
+		"Bobby":   []string{"Sophia", "BBQ", "hikes"},
+		"Sophia":  []string{"Resting alut", "being a been", "being the best"},
 		"Injoong": []string{"Hades", "Ruth", "Reggie"},
 	}
 	for k, v := range m {
@@ -89,8 +89,8 @@ func exercise8() {
 }
 func exercise9() {
 	m := map[string][]string{
-		"Bobby": []string{"Sophia", "BBQ", "hikes"},
-		"Sophia": []string{"Resting alut", "being a been", "being the best"},
+		"Bobby":   []string{"Sophia", "BBQ", "hikes"},
+		"Sophia":  []string{"Resting alut", "being a been", "being the best"},
 		"Injoong": []string{"Hades", "Ruth", "Reggie"},
 	}
 	m["Arthur"] = []string{"Board Games", "Friends", "climbing"}
@@ -103,8 +103,8 @@ func exercise9() {
 }
 func exercise10() {
 	m := map[string][]string{
-		"Bobby": []string{"Sophia", "BBQ", "hikes"},
-		"Sophia": []string{"Resting alut", "being a been", "being the best"},
+		"Bobby":   []string{"Sophia", "BBQ", "hikes"},
+		"Sophia":  []string{"Resting alut", "being a been", "being the best"},
 		"Injoong": []string{"Hades", "Ruth", "Reggie"},
 	}
 	delete(m, "Bobby")

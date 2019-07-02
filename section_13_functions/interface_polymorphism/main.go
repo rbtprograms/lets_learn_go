@@ -57,10 +57,10 @@ func main() {
 	}
 	p1 := person{
 		first: "Dr.",
-		last: "Yes",
-		age: 50,
+		last:  "Yes",
+		age:   50,
 	}
-	//embedded fields are promoted up but can still be 
+	//embedded fields are promoted up but can still be
 	//accessed via their type
 	fmt.Println(b1)
 	fmt.Println(b1.first)

@@ -27,7 +27,7 @@ func main() {
 	fmt.Println(x[2:4])
 
 	//append to a slice
-	y := []int{9,10,11}
+	y := []int{9, 10, 11}
 	x = append(x, y...)
 	//						^^^^go's spread operator
 	fmt.Println(x)
@@ -60,16 +60,16 @@ func main() {
 	fmt.Println(xp)
 
 	//This is kind of like how objects in JS point to the same object,
-//so copying them is tricky. Slices will point to the same underlying
-//array, so if one of your slices changes the underlying array it will
-//affect another slice using data from that same array. thats
-//why b is changed when c is changed
-b := []int{65,43,6,88,32,56,9,32,4,67}
-fmt.Println(b)
-c := append(b[0:2], b[5:]...) //new underlying array stores the value of new slice
+	//so copying them is tricky. Slices will point to the same underlying
+	//array, so if one of your slices changes the underlying array it will
+	//affect another slice using data from that same array. thats
+	//why b is changed when c is changed
+	b := []int{65, 43, 6, 88, 32, 56, 9, 32, 4, 67}
+	fmt.Println(b)
+	c := append(b[0:2], b[5:]...) //new underlying array stores the value of new slice
 
-fmt.Println(b)
-fmt.Println(c)
+	fmt.Println(b)
+	fmt.Println(c)
 }
 
 //a slice allows you to group together values

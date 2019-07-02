@@ -29,7 +29,7 @@ type shape interface {
 	area() float64
 }
 
-func info(s shape){
+func info(s shape) {
 	fmt.Println(s.area())
 }
 
