@@ -7,17 +7,18 @@ import (
 
 func main() {
 	exercise1()
+	exercise2()
 }
 
 func exercise1() {
 	var wg sync.WaitGroup
 	wg.Add(2)
 
-	go func(){
+	go func() {
 		fmt.Println("FIRST GO ROUTINE")
 		wg.Done()
 	}()
-	go func(){
+	go func() {
 		fmt.Println("SECOND GO ROUTINE")
 		wg.Done()
 	}()
@@ -29,16 +30,36 @@ type person struct {
 	last  string
 }
 
-func changeMe(p *person) {
-	(*p).first = "CHANGED"
+type dog struct {
+	name  string
+	color string
+}
+
+type human interface {
+	speak()
+}
+
+func (p *person) speak() {
+	fmt.Printf("My name is %v %v\n", p.first, p.last)
+}
+
+func (d *dog) speak() {
+	fmt.Println("WOOF WOOF I AM A DOG")
+}
+
+func saySomething(h human) {
+	h.speak()
 }
 
 func exercise2() {
 	p := person{
-		first: "Bobby",
+		first: "Bubby",
 		last:  "Bubbero",
 	}
-	fmt.Println(p)
-	changeMe(&p)
-	fmt.Println(p)
+	d := dog{
+		name:  "Fido",
+		color: "brown",
+	}
+	saySomething(&p)
+	saySomething(&d)
 }
