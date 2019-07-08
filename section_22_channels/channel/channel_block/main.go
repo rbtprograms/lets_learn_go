@@ -5,7 +5,6 @@ import (
 	"runtime"
 )
 
-
 //channels MUST receive and pass data at the same time,
 //channels will block execution
 //this code doesnt run because the channel is blocking

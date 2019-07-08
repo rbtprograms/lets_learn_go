@@ -12,7 +12,7 @@ func main() {
 	fmt.Println("GO ROUTINES", runtime.NumGoroutine())
 	c := make(chan int)
 
-	go func(){
+	go func() {
 		c <- 42
 	}()
 

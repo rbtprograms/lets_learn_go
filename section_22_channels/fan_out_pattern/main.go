@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"sync"
 	"math/rand"
+	"sync"
 	"time"
 )
 

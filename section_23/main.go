@@ -4,8 +4,8 @@ import "fmt"
 
 func main() {
 	exercise1()
-	// exercise2()
-	// exercise3()
+	exercise2()
+	exercise3()
 	// exercise4()
 	// exercise5()
 	// exercise6()
@@ -13,6 +13,7 @@ func main() {
 }
 
 func exercise1() {
+	fmt.Println("EXERCISE 1:")
 	c := make(chan int)
 	c2 := make(chan int, 1)
 
@@ -26,20 +27,51 @@ func exercise1() {
 }
 
 func exercise2() {
-	s := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
-	for i, v := range s {
-		fmt.Println(i, v)
+	fmt.Println("EXERCISE 2:")
+
+	cs := make(chan int)
+
+	go func() {
+		cs <- 42
+	}()
+	fmt.Println(<-cs)
+
+	fmt.Printf("------\n")
+	fmt.Printf("cs\t%T\n", cs)
+
+	cr := make(chan int)
+
+	go func() {
+		cr <- 42
+	}()
+	fmt.Println(<-cr)
+
+	fmt.Printf("------\n")
+	fmt.Printf("cr\t%T\n", cr)
+}
+
+func gen(c chan<- int) {
+
+	for i := 0; i < 10; i++ {
+		c <- i
 	}
-	fmt.Printf("%T ", s)
+	close(c)
+}
+
+func receive(c chan int) {
+	for v := range c {
+		fmt.Println(v)
+	}
 }
 
 func exercise3() {
-	s := []int{42, 43, 44, 45, 46, 47, 48, 49, 50, 51}
-	fmt.Println(s[2:5])
-	fmt.Println(s[3:6])
-	fmt.Println(s[4:7])
-	fmt.Println(s[5:8])
-	fmt.Println(s[6:9])
+	c := make(chan int)
+
+	fmt.Println("EXERCISE 3:")
+	go gen(c)
+	receive(c)
+
+	fmt.Println("about to exit")
 }
 
 func exercise4() {

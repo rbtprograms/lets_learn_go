@@ -6,7 +6,7 @@ import (
 
 func main() {
 	c := make(chan int)
-	go func(){
+	go func() {
 		c <- 100
 		close(c)
 	}()
@@ -17,4 +17,3 @@ func main() {
 	v, ok = <-c
 	fmt.Println("off the chan:", v, ok)
 }
-

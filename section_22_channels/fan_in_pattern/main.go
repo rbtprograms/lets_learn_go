@@ -24,15 +24,15 @@ func receive(e, o <-chan int, fi chan<- int) {
 	var wg sync.WaitGroup
 	wg.Add(2)
 
-	go func(){
-		for v:= range e {
+	go func() {
+		for v := range e {
 			fi <- v
 		}
 		wg.Done()
 	}()
 
 	go func() {
-		for v:= range o {
+		for v := range o {
 			fi <- v
 		}
 		wg.Done()

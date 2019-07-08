@@ -16,7 +16,7 @@ func main() {
 
 func boring(msg string) <-chan string {
 	c := make(chan string)
-	go func(){
+	go func() {
 		for i := 0; ; i++ {
 			c <- fmt.Sprintf("%s, %d", msg, i)
 			//waits for random increments of time
@@ -28,14 +28,14 @@ func boring(msg string) <-chan string {
 
 func fanIn(input1, input2 <-chan string) <-chan string {
 	c := make(chan string)
-	go func(){
+	go func() {
 		for {
-			c <-<-input1
+			c <- <-input1
 		}
 	}()
-	go func(){
+	go func() {
 		for {
-			c <-<-input2
+			c <- <-input2
 		}
 	}()
 	return c
