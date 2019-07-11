@@ -24,7 +24,7 @@ func receive(e, o <-chan int, q <-chan bool) {
 			if !ok {
 				fmt.Println("from the quit channel:", v, ok)
 			} else {
-				fmt.Prinlt("true in the quit chan")
+				fmt.Println("true in the quit chan")
 			}
 			return
 		}

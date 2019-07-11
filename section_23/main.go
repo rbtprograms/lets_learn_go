@@ -6,10 +6,9 @@ func main() {
 	exercise1()
 	exercise2()
 	exercise3()
-	// exercise4()
-	// exercise5()
-	// exercise6()
-	// exercise7()
+	exercise4()
+	exercise5()
+	exercise6()
 }
 
 func exercise1() {
@@ -50,61 +49,88 @@ func exercise2() {
 	fmt.Printf("cr\t%T\n", cr)
 }
 
-func gen(c chan<- int) {
-
-	for i := 0; i < 10; i++ {
-		c <- i
-	}
-	close(c)
-}
-
-func receive(c chan int) {
-	for v := range c {
-		fmt.Println(v)
-	}
-}
-
 func exercise3() {
 	c := make(chan int)
 
 	fmt.Println("EXERCISE 3:")
-	go gen(c)
-	receive(c)
+	go func(c chan<- int) {
+
+		for i := 0; i < 10; i++ {
+			c <- i
+		}
+		close(c)
+	}(c)
+	func(c chan int) {
+		for v := range c {
+			fmt.Println(v)
+		}
+	}(c)
 
 	fmt.Println("about to exit")
 }
 
 func exercise4() {
-	s := []int{42, 43, 44, 45, 46, 47, 48, 49, 50, 51}
-	s = append(s, 52)
-	fmt.Println(s)
-	s = append(s, 53, 54, 55)
-	fmt.Println(s)
-	s = append(s, []int{56, 57, 58, 59}...)
-	fmt.Println(s)
+	fmt.Println("EXERCISE 4:")
+
+	q := make(chan int)
+	c := func(q chan<- int) <-chan int {
+		c := make(chan int)
+
+		go func() {
+
+			for i := 20; i < 30; i++ {
+				c <- i
+			}
+			q <- 1
+			close(c)
+		}()
+		return c
+	}(q)
+
+	func(c <-chan int, q chan int) {
+		for {
+			select {
+			case v := <-c:
+				fmt.Println("value pulled off channel:", v)
+			case <-q:
+				return
+			}
+		}
+	}(c, q)
+
+	fmt.Println("about to exit")
 }
 
 func exercise5() {
-	s := []int{42, 43, 44, 45, 46, 47, 48, 49, 50, 51}
-	s = append(s[:3], s[6:]...)
-	fmt.Println(s)
+	fmt.Println("EXERCISE 5:")
+
+	c := make(chan int)
+
+	go func(c chan<- int) {
+		for i := 0; i < 100; i++ {
+			c <- i
+		}
+		close(c)
+	}(c)
+
+	func(c <-chan int) {
+		for v := range c {
+			fmt.Println(v)
+		}
+	}(c)
 }
 
 func exercise6() {
-	s := make([]string, 50, 50)
-	s = []string{}
-	fmt.Println(s)
-	fmt.Println(len(s))
-	fmt.Println(cap(s))
-}
-func exercise7() {
-	s := [][]string{[]string{"Bobby", "Sophia", "yith"}, []string{"Cait", "Mom", "Dad"}}
-	fmt.Println(s)
-
-	for i, v := range s {
-		fmt.Println("item: ", i)
-		for j, v := range v {
-			fmt.Printf("\tindex: %v\tvalue: %v", j, v)
-		}
+	c := make(chan int)
+	for i := 0; i < 10; i++ {
+		go func(c chan<- int) {
+			for j := 0; j < 10; j++ {
+				c <- j
+			}
+		}(c)
 	}
+	for i := 0; i < 100; i++ {
+		fmt.Println(i, <-c)
+	}
+
 }
