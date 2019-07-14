@@ -1,15 +1,15 @@
 package main
 
 import (
-	"fmt"
 	"errors"
+	"fmt"
 	"log"
 )
 
 type squareError struct {
 	length int
-	width int
-	err error
+	width  int
+	err    error
 }
 
 func (s squareError) Error() string {
@@ -39,4 +39,3 @@ func sqrt(f float64) (float64, error) {
 	}
 	return 42, nil
 }
-

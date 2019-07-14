@@ -11,7 +11,7 @@ func main() {
 
 	y := 1
 	y = c()
-	fmt.Println("Y:",y)
+	fmt.Println("Y:", y)
 
 	f()
 	fmt.Println("Returned normally from f.")

@@ -1,10 +1,10 @@
 package main
 
 import (
-	"fmt"
-	"log"
 	"encoding/json"
 	"errors"
+	"fmt"
+	"log"
 )
 
 func main() {
@@ -12,8 +12,6 @@ func main() {
 	exercise2()
 	exercise3()
 	exercise4()
-	// exercise5()
-	// exercise6()
 }
 
 type person struct {
@@ -29,7 +27,7 @@ func exercise1() {
 		Last:    "Bond",
 		Sayings: []string{"Shaken, not stirred", "Any last wishes?", "Never say never"},
 	}
-	
+
 	bs, err := json.Marshal(p1)
 	if err != nil {
 		log.Fatalln("Error Marshaling JSON:", err)
@@ -65,6 +63,7 @@ func exercise2() {
 type customErr struct {
 	err error
 }
+
 func (c customErr) Error() string {
 	return fmt.Sprintf("ERROR DOING THING: %v %v", c.err)
 }
@@ -104,38 +103,4 @@ func exercise4() {
 	if err != nil {
 		log.Println(err)
 	}
-}
-
-func exercise5() {
-	fmt.Println("EXERCISE 5:")
-
-	c := make(chan int)
-
-	go func(c chan<- int) {
-		for i := 0; i < 100; i++ {
-			c <- i
-		}
-		close(c)
-	}(c)
-
-	func(c <-chan int) {
-		for v := range c {
-			fmt.Println(v)
-		}
-	}(c)
-}
-
-func exercise6() {
-	c := make(chan int)
-	for i := 0; i < 10; i++ {
-		go func(c chan<- int) {
-			for j := 0; j < 10; j++ {
-				c <- j
-			}
-		}(c)
-	}
-	for i := 0; i < 100; i++ {
-		fmt.Println(i, <-c)
-	}
-
 }
