@@ -4,13 +4,14 @@ import (
 	"fmt"
 	"log"
 	"encoding/json"
+	"errors"
 )
 
 func main() {
 	exercise1()
 	exercise2()
-	// exercise3()
-	// exercise4()
+	exercise3()
+	exercise4()
 	// exercise5()
 	// exercise6()
 }
@@ -61,56 +62,48 @@ func exercise2() {
 	fmt.Println(string(bs))
 }
 
+type customErr struct {
+	err error
+}
+func (c customErr) Error() string {
+	return fmt.Sprintf("ERROR DOING THING: %v %v", c.err)
+}
+func foo(e error) {
+	fmt.Println(e)
+}
+
 func exercise3() {
-	c := make(chan int)
+	fmt.Println("**EXERCISE 3**")
 
-	fmt.Println("EXERCISE 3:")
-	go func(c chan<- int) {
+	c1 := customErr{errors.New("Erorr")}
+	foo(c1)
+}
 
-		for i := 0; i < 10; i++ {
-			c <- i
-		}
-		close(c)
-	}(c)
-	func(c chan int) {
-		for v := range c {
-			fmt.Println(v)
-		}
-	}(c)
+type sqrtError struct {
+	lat  string
+	long string
+	err  error
+}
 
-	fmt.Println("about to exit")
+func (se sqrtError) Error() string {
+	return fmt.Sprintf("math error: %v %v %v", se.lat, se.long, se.err)
+}
+
+func sqrt(f float64) (float64, error) {
+	if f < 0 {
+		se := fmt.Errorf("Error making square root: %v", f)
+		return 0, sqrtError{"50.2289 N", "99.4656 W", se}
+	}
+	return 42, nil
 }
 
 func exercise4() {
-	fmt.Println("EXERCISE 4:")
+	fmt.Println("**EXERCISE 4**")
 
-	q := make(chan int)
-	c := func(q chan<- int) <-chan int {
-		c := make(chan int)
-
-		go func() {
-
-			for i := 20; i < 30; i++ {
-				c <- i
-			}
-			q <- 1
-			close(c)
-		}()
-		return c
-	}(q)
-
-	func(c <-chan int, q chan int) {
-		for {
-			select {
-			case v := <-c:
-				fmt.Println("value pulled off channel:", v)
-			case <-q:
-				return
-			}
-		}
-	}(c, q)
-
-	fmt.Println("about to exit")
+	_, err := sqrt(-10.23)
+	if err != nil {
+		log.Println(err)
+	}
 }
 
 func exercise5() {
