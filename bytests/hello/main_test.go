@@ -15,7 +15,7 @@ func TestHello(t *testing.T) {
 		want := "Hello, Bobby"
 		assertCorrect(t, got, want)
 	})
-	
+
 	t.Run("say Hello, World if no string is given", func(t *testing.T) {
 		got := Hello("", "")
 		want := "Hello, World"
