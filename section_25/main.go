@@ -65,7 +65,7 @@ type customErr struct {
 }
 
 func (c customErr) Error() string {
-	return fmt.Sprintf("ERROR DOING THING: %v %v", c.err)
+	return fmt.Sprintf("ERROR DOING THING: %v", c.err)
 }
 func foo(e error) {
 	fmt.Println(e)
