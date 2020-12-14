@@ -1,7 +1,9 @@
 package ptrs
 
-import ("fmt" 
-"errors")
+import (
+	"errors"
+	"fmt"
+)
 
 type Bitcoin int
 

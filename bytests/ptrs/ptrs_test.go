@@ -3,12 +3,12 @@ package ptrs
 import "testing"
 
 func TestWallet(t *testing.T) {
- assertNoError := func(t *testing.T, got error) {
-    t.Helper()
-    if got != nil {
-        t.Fatal("got an error but didnt want one")
-    }
-}
+	assertNoError := func(t *testing.T, got error) {
+		t.Helper()
+		if got != nil {
+			t.Fatal("got an error but didnt want one")
+		}
+	}
 	assertError := func(t *testing.T, got error, want error) {
 		t.Helper()
 		if got == nil {
